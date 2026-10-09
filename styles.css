@@ -1,0 +1,435 @@
+/* Task 1: Basic Settings */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+:root {
+--brand: #1e56d6;
+--brand-dark: #0b1f3a;
+--accent: #0f9d78;
+--bg: #f5f6f4;
+--surface: #ffffff;
+--text: #151a21;
+--muted: #5b6472;
+--border: #d8dcd6;
+--space: 16px;
+--radius: 12px;
+}
+
+/* Basic Page Styling */
+body {
+margin: 0;
+font-family: "Segoe UI", Arial, sans-serif;
+font-size: 1rem;
+line-height: 1.6;
+color: var(--text);
+background: var(--bg);
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+/* Task 2: Selectors */
+h1, h2, h3 {
+color: var(--brand-dark);
+line-height: 1.2;
+}
+
+h2 {
+margin-top: 0;
+font-size: 1.5rem;
+}
+
+h2::before {
+content: "» ";
+color: var(--accent);
+}
+
+p {
+margin-bottom: 16px;
+}
+
+h2 + p {
+margin-top: 0;
+}
+
+img, video {
+max-width: 100%;
+height: auto;
+}
+
+a, button {
+transition: background 0.2s, color 0.2s;
+}
+
+a[href^="http"]::after {
+content: " (external)";
+font-size: 0.8em;
+color: var(--muted);
+}
+
+::selection {
+background: var(--brand);
+color: white;
+}
+
+/* Task 3: Box Model */
+main {
+width: 100%;
+max-width: 1100px;
+margin: 0 auto;
+padding: 24px var(--space);
+flex: 1;
+}
+
+.card {
+position: relative;
+min-width: 0;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 24px;
+box-shadow: 0 2px 6px rgba(11, 31, 58, 0.08);
+}
+
+#about {
+border-left: 4px solid var(--brand);
+}
+
+.fun-fact {
+border-left: 5px solid var(--accent);
+}
+
+figure {
+margin: 16px 0;
+}
+
+figure img {
+display: block;
+width: 250px;
+height: 250px;
+max-width: 100%;
+object-fit: cover;
+border-radius: var(--radius);
+}
+
+figcaption {
+color: var(--muted);
+font-size: 0.9rem;
+margin-top: 4px;
+}
+
+blockquote {
+margin: 16px 0;
+padding: 12px 16px;
+border-left: 4px solid var(--accent);
+background: #f0f6ff;
+}
+
+blockquote::before {
+content: "“";
+color: var(--accent);
+font-size: 2rem;
+}
+
+/* Task 4: Positioning */
+.site-header {
+position: sticky;
+top: 0;
+z-index: 100;
+background: var(--brand-dark);
+color: white;
+padding: 16px 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 12px;
+}
+
+.site-header h1 {
+color: white;
+margin: 0;
+}
+
+nav {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+padding: 4px 8px;
+border-radius: 6px;
+}
+
+nav a:hover {
+background: rgba(255, 255, 255, 0.15);
+text-decoration: underline;
+}
+
+.skip-link {
+position: absolute;
+top: -100px;
+left: 8px;
+z-index: 200;
+background: white;
+color: var(--brand-dark);
+padding: 8px 16px;
+border-radius: 6px;
+}
+
+.skip-link:focus {
+top: 8px;
+}
+
+.badge {
+position: absolute;
+top: -12px;
+right: 16px;
+background: var(--accent);
+color: white;
+padding: 4px 12px;
+border-radius: 999px;
+font-size: 0.85rem;
+font-weight: bold;
+}
+
+.back-to-top {
+position: fixed;
+right: 16px;
+bottom: 16px;
+z-index: 90;
+background: var(--brand);
+color: white;
+padding: 10px 16px;
+border-radius: 999px;
+text-decoration: none;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.back-to-top:hover {
+background: var(--brand-dark);
+}
+
+/* Task 5: Flexbox */
+.about-body {
+display: flex;
+align-items: flex-start;
+flex-wrap: wrap;
+gap: 24px;
+}
+
+.about-body figure {
+flex: 0 0 180px;
+margin: 0;
+}
+
+.about-body figure img {
+width: 180px;
+height: 180px;
+}
+
+.about-body > div {
+flex: 1 1 280px;
+min-width: 0;
+}
+
+.tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.tags li {
+background: #eaf0fe;
+color: var(--brand-dark);
+padding: 6px 14px;
+border-radius: 999px;
+}
+
+.tags li:nth-child(even) {
+background: #e7f7f1;
+}
+
+.row {
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+}
+
+.row .form-row {
+flex: 1 1 220px;
+min-width: 0;
+}
+
+.form-row {
+display: flex;
+flex-direction: column;
+gap: 4px;
+margin-bottom: 16px;
+}
+
+.radio-group {
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+margin-bottom: 16px;
+}
+
+fieldset {
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 16px;
+min-width: 0;
+}
+
+legend {
+font-weight: bold;
+color: var(--brand-dark);
+}
+
+input, select, textarea {
+width: 100%;
+max-width: 100%;
+padding: 8px;
+font: inherit;
+border: 1px solid var(--border);
+border-radius: 6px;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+width: auto;
+}
+
+input[required],
+textarea[required] {
+border-left: 4px solid var(--accent);
+}
+
+input[type="email"] {
+background: #f0f6ff;
+}
+
+textarea {
+resize: vertical;
+}
+
+button {
+padding: 10px 20px;
+border: 0;
+border-radius: 8px;
+background: var(--brand);
+color: white;
+font: inherit;
+cursor: pointer;
+margin: 8px 8px 8px 0;
+}
+
+button:hover {
+filter: brightness(1.15);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+a:focus,
+button:focus {
+outline: 3px solid var(--brand);
+outline-offset: 2px;
+}
+
+/* Task 6: CSS Grid - Mobile First */
+main {
+display: grid;
+grid-template-columns: 1fr;
+grid-template-areas:
+"about"
+"skills"
+"timeline"
+"fun"
+"media"
+"contact";
+gap: 24px;
+}
+
+#about {
+grid-area: about;
+}
+
+#skills {
+grid-area: skills;
+}
+
+#timeline {
+grid-area: timeline;
+}
+
+.fun-fact {
+grid-area: fun;
+}
+
+#media {
+grid-area: media;
+}
+
+#contact {
+grid-area: contact;
+}
+
+/* Tablet Layout */
+@media (min-width: 700px) {
+main {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+grid-template-areas:
+"about about"
+"skills timeline"
+"fun media"
+"contact contact";
+}
+}
+
+/* Desktop Layout */
+@media (min-width: 1000px) {
+main {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+grid-template-areas:
+"about about skills"
+"timeline fun media"
+"contact contact contact";
+}
+}
+
+/* Footer */
+footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 8px;
+background: var(--brand-dark);
+color: white;
+padding: 24px;
+margin-top: 16px;
+}
+
+footer p {
+margin: 0;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after {
+transition: none !important;
+scroll-behavior: auto !important;
+}
+}
